@@ -91,6 +91,7 @@ class App extends Component {
     return (
       <div className={this.state.isMenuOpen ? 'wrapper wrapper--hasMenu' : 'wrapper'}>
         <div className={ this.state.isMenuOpen ? 'menu menu--open' : 'menu' }>
+          <div className="close" onClick={this.toggleMenu}>Close</div>
           <div className="menu__trigger" onClick={this.toggleMenu}>
             <div className="decorator"><MaterialIcon icon="menu"/></div>
           </div>

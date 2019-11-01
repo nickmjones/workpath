@@ -97,6 +97,15 @@
     text-transform: capitalize;
     cursor: pointer;
   }
+  .close {
+    color: #777;
+    text-transform: uppercase;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: .8rem;
+    cursor: pointer;
+  }
 }
 .menu--open {
   left: 0;
