@@ -1,0 +1,163 @@
+// This file acts as a manifest to import other
+// application css
+
+@import './base/base';
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  transition: all .20s ease-in-out;
+  display: flex;
+  padding: 0 2.5rem 2.5rem;
+  transition: all .40s ease-in-out;
+}
+
+.cards {
+  flex: 90%;
+  display: flex;
+  flex-flow: column wrap;
+  padding-top: 3.5rem;
+
+  @include for-tablet-landscape-up {
+    flex-flow: row wrap;
+  }
+}
+@for $i from 1 through 10 {
+  .cards__card {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * (1s / 18);
+    }
+  }
+}
+.cards__card {
+  flex: 1;
+  padding: 1rem;
+  animation: .3s ease-in-out both fade-in;
+  transition: background-color .20s ease-in-out;
+  @include for-tablet-landscape-up {
+    flex: calc(20% - 1rem);
+    margin: 3px;
+    border: 1px solid #efefef;
+  }
+
+  &:hover {
+    background: darken(#efefef, 5%);
+  }
+}
+.cards__card:not(:last-child){
+  border-bottom: 1px solid #efefef;
+}
+.current-section {
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 1rem;
+  color: #777;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background: #efefef;
+  padding: 1.1rem 0 1.2rem 1rem;
+  box-shadow: 0 10px 20px #efefef;
+  transition: all .20s ease-in-out;
+  font-family: Helvetica, Arial, sans-serif;
+  z-index: 99;
+
+  &--menuPresent {
+    transform: translateX(380px);
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -375px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.98);
+  border-right: 1px solid #666;
+  width: 375px;
+  height: 100vh;
+  transition: all .20s ease-in-out;
+  z-index: 99;
+
+  h5 {
+    font-size: .8rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  ul li {
+    margin: .5rem 0;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+}
+.menu--open {
+  left: 0;
+}
+.menu__trigger {
+  position: absolute;
+  top: 1rem;
+  left: 390px;
+  cursor: pointer;
+  z-index: 99;
+}
+
+//-----------------------------------------
+// List items inside menu
+//-----------------------------------------
+
+.listItems {
+  margin-top: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 2rem;
+}
+.listItems li {
+  flex: 50%;
+}
+.single {
+  display: block;
+  line-height: 0;
+  border-bottom: 1px solid #d7d7d7;
+  padding: 10px 0 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .material-icons {
+    line-height: 1;
+    padding: 0 .5rem 0 0;
+    color: #888;
+  }
+}
+
+//-----------------------------------------
+// Form
+//-----------------------------------------
+
+.article-search {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d7d7d7;
+  .material-icons {
+    padding-right: 5px;
+  }
+}
+.article-search input[type='text'] {
+  width: 100%;
+  border: 0;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Domine');
+
+$base-font-size: 16px;
+$heading-scale: 4;
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $base-font-size + $heading-scale * (6 - $i);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: .7rem;
+  font-family: 'Domine', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+}
+
+p {
+  font-size: $base-font-size;
+  line-height: 1.2;
+  font-family: 'Crimson Text', Georgia, 'Times New Roman', Times, serif;
+}
+p.small {
+  margin-top: .6rem;
+  color: brown;
+  font-size: .8rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
